@@ -1,0 +1,11 @@
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.deps.json
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.runtimeconfig.json
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.dll
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.pdb
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.AssemblyInfo.cs
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.dll
+C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.pdb
