@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PeopleSearch.API.Data;
+
 using PeopleSearch.API.Dtos;
 using PeopleSearch.API.Models;
-using System.Drawing;
-using PeopleSearch.API.Repository;
 using PeopleSearch.API.Interface;
+using PeopleSearch.API.Constants;
 
 
 namespace PeopleSearch.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     public class PeopleController : Controller
     {
         private readonly IPeopleRepository peopleRepository;
@@ -24,55 +22,47 @@ namespace PeopleSearch.API.Controllers
             this.peopleRepository = peopleRepository;
         }
 
-        // GET api/people/name     
+        // GET api/users/name     
         [HttpGet("{name}")]
-        public async Task<IActionResult> Get(string name)
+        public async Task<IActionResult> GetUser(string name)
         {
-            if (String.IsNullOrWhiteSpace(name)){
-                return NotFound();
+            if (!String.IsNullOrWhiteSpace(name))
+            {
+                List<User> userData = await this.peopleRepository.GetUsers(name.ToLower());
+                if (userData.Count <= 0)
+                {
+                    return NotFound(ErrorMessages.UserNotFound);
+                }
+                return Ok(userData);
             }
-            List<People> data = await this.peopleRepository.GetUsers(name.ToLower());
-            return Ok(data);
+            else
+            {
+                return BadRequest(ErrorMessages.NullOrEmptySpace);
+            }
         }
 
-        // POST api/values 
-        [HttpPost("register")]
-        public async Task<IActionResult> Post([FromBody]userForRegisterDto userForRegisterDto)
+        // POST api/users 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]UserDto userData)
         {
-            try{
-                    if(!ModelState.IsValid){ 
-                        return BadRequest(ModelState);
-                    }
-                    userForRegisterDto.FirstName  = userForRegisterDto.FirstName.ToLower();
-                    userForRegisterDto.LastName  = userForRegisterDto.LastName.ToLower();
-            
-                    var createnewLocation = new Location{
-                        Address = userForRegisterDto.Address,
-                        City = userForRegisterDto.City,
-                        State = userForRegisterDto.State,
-                        Zip = userForRegisterDto.Zip,
-                        Country = userForRegisterDto.Country
-                    };
-
-                    var userToCreate = new People{
-                        FirstName = userForRegisterDto.FirstName,
-                        LastName = userForRegisterDto.LastName,
-                        Location = createnewLocation,
-                        LocationId = createnewLocation.Id,
-                        Age = userForRegisterDto.Age,
-                        Interests = userForRegisterDto.Interests,
-                        Image = userForRegisterDto.Image
-                    };
-                            
-                    this.peopleRepository.Add(userToCreate);
-                    await this.peopleRepository.SaveChanges();
-                    return StatusCode(201); 
-                }    
-                catch{
-                    return BadRequest();
+            if (userData != null)
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
                 }
+                Address address = Mapper.Map<Address>(userData);
+                User user = Mapper.Map<User>(userData);
+                user.Address = address;
+
+                this.peopleRepository.Add(user);
+                await this.peopleRepository.SaveChanges();
+                return StatusCode(201); 
             }
- 
-    
+            else
+            {
+                return BadRequest(ErrorMessages.NullUserData);
+            }
+        }
     }
 }
