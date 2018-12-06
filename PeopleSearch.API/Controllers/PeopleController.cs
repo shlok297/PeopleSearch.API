@@ -17,34 +17,27 @@ namespace PeopleSearch.API.Controllers
     [Route("api/[controller]")]
     public class PeopleController : Controller
     {
-        private IPeopleRepository _peopleRepository;
+        private readonly IPeopleRepository peopleRepository;
 
         public PeopleController(IPeopleRepository peopleRepository)
         {
-            _peopleRepository = peopleRepository;
+            this.peopleRepository = peopleRepository;
         }
 
         // GET api/people/name     
         [HttpGet("{name}")]
-        public async Task<IActionResult> GetValue(string name)
+        public async Task<IActionResult> Get(string name)
         {
-            try{
-                if(name == null || name == ""){
-                    return NotFound();
-                }
-                var nameL = name.ToLower();
-                var data = await _peopleRepository.GetOne(nameL);
-                return Ok(data);
+            if (String.IsNullOrWhiteSpace(name)){
+                return NotFound();
             }
-            catch{
-                return StatusCode(500 , "Error occured while searching the database");
-            }
-            
+            List<People> data = await this.peopleRepository.GetUsers(name.ToLower());
+            return Ok(data);
         }
 
         // POST api/values 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody]userForRegisterDto userForRegisterDto)
+        public async Task<IActionResult> Post([FromBody]userForRegisterDto userForRegisterDto)
         {
             try{
                     if(!ModelState.IsValid){ 
@@ -71,8 +64,8 @@ namespace PeopleSearch.API.Controllers
                         Image = userForRegisterDto.Image
                     };
                             
-                    _peopleRepository.Add(userToCreate);
-                    await _peopleRepository.SaveChanges();
+                    this.peopleRepository.Add(userToCreate);
+                    await this.peopleRepository.SaveChanges();
                     return StatusCode(201); 
                 }    
                 catch{

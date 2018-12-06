@@ -7,7 +7,7 @@ namespace PeopleSearch.API.Interface
 {
     public interface IPeopleRepository
     {
-        Task<List<People>> GetOne(string name);
+        Task<List<People>> GetUsers(string name);
         
         void Add(People people);
     

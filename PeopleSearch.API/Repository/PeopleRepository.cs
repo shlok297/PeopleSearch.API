@@ -17,7 +17,7 @@ namespace PeopleSearch.API.Repository
             _context = context;
         }
 
-        public Task<List<People>> GetOne (string name) =>
+        public Task<List<People>> GetUsers (string name) =>
            _context.People.Include(x => x.Location).Where(x => x.FirstName.Contains(name) || x.LastName.Contains(name)).ToListAsync();
         
         public void Add(People people) =>
