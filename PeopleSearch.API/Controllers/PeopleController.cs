@@ -1,85 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PeopleSearch.API.Data;
+
 using PeopleSearch.API.Dtos;
 using PeopleSearch.API.Models;
-using System.Drawing;
-using PeopleSearch.API.Repository;
 using PeopleSearch.API.Interface;
+using PeopleSearch.API.Constants;
 
 
 namespace PeopleSearch.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     public class PeopleController : Controller
     {
-        private IPeopleRepository _peopleRepository;
+        private readonly IPeopleRepository peopleRepository;
 
         public PeopleController(IPeopleRepository peopleRepository)
         {
-            _peopleRepository = peopleRepository;
+            this.peopleRepository = peopleRepository;
         }
 
-        // GET api/people/name     
+        // GET api/users/name     
         [HttpGet("{name}")]
-        public async Task<IActionResult> GetValue(string name)
+        public async Task<IActionResult> GetUser(string name)
         {
-            try{
-                if(name == null || name == ""){
-                    return NotFound();
+            if (!String.IsNullOrWhiteSpace(name))
+            {
+                List<User> userData = await this.peopleRepository.GetUsers(name.ToLower());
+                if (userData.Count <= 0)
+                {
+                    return NotFound(ErrorMessages.UserNotFound);
                 }
-                var nameL = name.ToLower();
-                var data = await _peopleRepository.GetOne(nameL);
-                return Ok(data);
+                return Ok(userData);
             }
-            catch{
-                return StatusCode(500 , "Error occured while searching the database");
+            else
+            {
+                return BadRequest(ErrorMessages.NullOrEmptySpace);
             }
-            
         }
 
-        // POST api/values 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody]userForRegisterDto userForRegisterDto)
+        // POST api/users 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]UserDto userData)
         {
-            try{
-                    if(!ModelState.IsValid){ 
-                        return BadRequest(ModelState);
-                    }
-                    userForRegisterDto.FirstName  = userForRegisterDto.FirstName.ToLower();
-                    userForRegisterDto.LastName  = userForRegisterDto.LastName.ToLower();
-            
-                    var createnewLocation = new Location{
-                        Address = userForRegisterDto.Address,
-                        City = userForRegisterDto.City,
-                        State = userForRegisterDto.State,
-                        Zip = userForRegisterDto.Zip,
-                        Country = userForRegisterDto.Country
-                    };
-
-                    var userToCreate = new People{
-                        FirstName = userForRegisterDto.FirstName,
-                        LastName = userForRegisterDto.LastName,
-                        Location = createnewLocation,
-                        LocationId = createnewLocation.Id,
-                        Age = userForRegisterDto.Age,
-                        Interests = userForRegisterDto.Interests,
-                        Image = userForRegisterDto.Image
-                    };
-                            
-                    _peopleRepository.Add(userToCreate);
-                    await _peopleRepository.SaveChanges();
-                    return StatusCode(201); 
-                }    
-                catch{
-                    return BadRequest();
+            if (userData != null)
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
                 }
+                Address address = Mapper.Map<Address>(userData);
+                User user = Mapper.Map<User>(userData);
+                user.Address = address;
+
+                this.peopleRepository.Add(user);
+                await this.peopleRepository.SaveChanges();
+                return StatusCode(201); 
             }
- 
-    
+            else
+            {
+                return BadRequest(ErrorMessages.NullUserData);
+            }
+        }
     }
 }

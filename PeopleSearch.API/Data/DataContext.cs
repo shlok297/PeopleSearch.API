@@ -7,8 +7,8 @@ namespace PeopleSearch.API.Data
     {
         public DataContext(DbContextOptions options) : base(options){}
 
-        public DbSet<People> People { get; set; }
+        public DbSet<User> User { get; set; }
 
-        public DbSet<Location> Location { get; set; }
+        public DbSet<Address> Address { get; set; }
     }
 }

@@ -9,3 +9,14 @@ C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\Peo
 C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.AssemblyInfo.cs
 C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.dll
 C:\Users\Admin\Desktop\PeopleSearch\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.pdb
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.deps.json
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.runtimeconfig.json
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.runtimeconfig.dev.json
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\bin\Debug\netcoreapp2.0\PeopleSearch.API.pdb
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.csprojAssemblyReference.cache
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.csproj.CoreCompileInputs.cache
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.AssemblyInfoInputs.cache
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.AssemblyInfo.cs
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.API\obj\Debug\netcoreapp2.0\PeopleSearch.API.pdb

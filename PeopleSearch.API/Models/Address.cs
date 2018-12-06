@@ -1,10 +1,10 @@
 namespace PeopleSearch.API.Models
 {
-    public class Location
+    public class Address
     {
         public int Id { get; set; }
 
-        public string Address { get; set; }
+        public string StreetAddress { get; set; }
          
         public string City { get; set; }
         

@@ -10,21 +10,30 @@ namespace PeopleSearch.API.Repository
 {
     public class PeopleRepository : IPeopleRepository
     {
-        private readonly DataContext _context;
+        private readonly DataContext databaseContext;
 
         public PeopleRepository(DataContext context)
         {
-            _context = context;
+            this.databaseContext = context;
         }
 
-        public Task<List<People>> GetOne (string name) =>
-           _context.People.Include(x => x.Location).Where(x => x.FirstName.Contains(name) || x.LastName.Contains(name)).ToListAsync();
-        
-        public void Add(People people) =>
-            _context.People.AddAsync(people);
-    
-        public Task SaveChanges() => 
-            _context.SaveChangesAsync();
+        public Task<List<User>> GetUsers(string name)
+        {
+            return this.databaseContext.User
+                    .Include(user => user.Address)
+                    .Where(user => user.FirstName.Contains(name) || user.LastName.Contains(name))
+                    .ToListAsync();
+        }
+
+        public void Add(User user)
+        {
+            this.databaseContext.User.AddAsync(user);
+        }
+
+        public Task SaveChanges()
+        {
+            return this.databaseContext.SaveChangesAsync();
+        }
 
     }
 }
