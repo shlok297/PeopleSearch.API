@@ -1,6 +1,6 @@
 namespace PeopleSearch.API.Models
 {
-    public class People
+    public class User
     {
         public int Id { get; set; }
         
@@ -8,13 +8,14 @@ namespace PeopleSearch.API.Models
         
         public string LastName { get; set; }
         
-
         public int LocationId { get; set; }
-        public Location Location { get; set; }
+
+        public Address Address { get; set; }
         
         public string Interests { get; set; }
-        public int Age { get; set; }
-        public string Image { get; set; }
 
+        public int Age { get; set; }
+
+        public string Image { get; set; }
     }
 }
