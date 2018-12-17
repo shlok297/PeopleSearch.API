@@ -6,7 +6,7 @@ This API performs Create and Read operations
 Postman testing
 ---------------
 
-***** For testing Create (Post) *****
+*/ For testing Create (Post) */
 
   http://localhost:[REPLACEME]/api/users/
 
@@ -24,6 +24,6 @@ Postman testing
                     "Image": "image conversion happens on the front end"
                   }
 
-***** For testing Read (Get) *****
+*/ For testing Read (Get) */
 
   http://localhost:[REPLACEME]/api/users/{searchString}
