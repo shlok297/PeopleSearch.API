@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
-using AutoMapper;
-using PeopleSearch.API.Data;
 using Microsoft.EntityFrameworkCore;
+
+using PeopleSearch.API.Data;
 using PeopleSearch.API.Interface;
 using PeopleSearch.API.Repository;
 using PeopleSearch.API.Constants;
@@ -30,7 +26,7 @@ namespace PeopleSearch.API
         {
             //services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase());
-            services.AddScoped<IPeopleRepository, PeopleRepository>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddMvc();
             services.AddCors();
             
@@ -53,19 +49,6 @@ namespace PeopleSearch.API
                     });
                 });
             }
-            Mapper.Initialize(config =>
-            {
-                config.CreateMap<Dtos.UserDto, Models.Address>()
-                    .ForMember(destination => destination.StreetAddress, opt => opt.MapFrom(source => source.StreetAddress))
-                    .ForMember(destination => destination.City, opt => opt.MapFrom(source => source.City))
-                    .ForMember(destination => destination.State, opt => opt.MapFrom(source => source.State))
-                    .ForMember(destination => destination.Country, opt => opt.MapFrom(source => source.Country))
-                    .ForMember(destination => destination.Zip, opt => opt.MapFrom(source => source.Zip));
-
-                config.CreateMap<Dtos.UserDto, Models.User>()
-                    .ForMember(destination => destination.FirstName, opt => opt.MapFrom(source => source.FirstName.ToLower()))
-                    .ForMember(destination => destination.LastName, opt => opt.MapFrom(source => source.LastName.ToLower()));
-            });
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseMvc();
         }
