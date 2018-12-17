@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+
 using PeopleSearch.API.Models;
 
 namespace PeopleSearch.API.Data

@@ -1,0 +1,17 @@
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.Tests.deps.json
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.Tests.runtimeconfig.json
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.Tests.runtimeconfig.dev.json
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.Tests.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.API.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.API.pdb
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.csprojAssemblyReference.cache
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.csproj.CoreCompileInputs.cache
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.AssemblyInfoInputs.cache
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.AssemblyInfo.cs
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.csproj.CopyComplete
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\bin\Debug\netcoreapp2.0\PeopleSearch.Tests.pdb
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.dll
+C:\Users\shlok.patel\Desktop\PeopleSearch\PeopleSearchApplicationAPI\PeopleSearch.Tests\obj\Debug\netcoreapp2.0\PeopleSearch.Tests.pdb

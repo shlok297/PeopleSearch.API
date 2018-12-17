@@ -10,8 +10,8 @@ using System;
 namespace PeopleSearch.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180607193259_CreateTablePeople")]
-    partial class CreateTablePeople
+    [Migration("20180607193259_CreateTableUser")]
+    partial class CreateTableUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace PeopleSearch.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026");
 
-            modelBuilder.Entity("PeopleSearch.API.Models.Location", b =>
+            modelBuilder.Entity("PeopleSearch.API.Models.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -36,10 +36,10 @@ namespace PeopleSearch.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Location");
+                    b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("PeopleSearch.API.Models.People", b =>
+            modelBuilder.Entity("PeopleSearch.API.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -54,20 +54,20 @@ namespace PeopleSearch.API.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<int>("LocationId");
+                    b.Property<int>("AddressId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("AddressId");
 
-                    b.ToTable("People");
+                    b.ToTable("User");
                 });
 
-            modelBuilder.Entity("PeopleSearch.API.Models.People", b =>
+            modelBuilder.Entity("PeopleSearch.API.Models.User", b =>
                 {
-                    b.HasOne("PeopleSearch.API.Models.Location", "Location")
+                    b.HasOne("PeopleSearch.API.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("LocationId")
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
