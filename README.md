@@ -1,16 +1,16 @@
-# PeopleSearchApplicationAPI
-ASP.NET Core web API application
+# People Search API
 
 This API performs Create and Read operations
 
-Postman testing
+### Postman testing
 ---------------
 
-*/ For testing Create (Post) */
+*For testing Create (Post)*
 
   http://localhost:[REPLACEME]/api/users/
 
   example json body:
+  ```javascript
                   {
                     "firstName": "TestFirstName",
                     "LastName": "TestLastName",
@@ -23,7 +23,8 @@ Postman testing
                     "State": "UT",
                     "Image": "image conversion happens on the front end"
                   }
+```
 
-*/ For testing Read (Get) */
+*For testing Read (Get)*
 
   http://localhost:[REPLACEME]/api/users/{searchString}
